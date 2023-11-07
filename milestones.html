@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Milestones</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #06c254ab;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3ac745;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <h2>Milestones</h2>
+        <label for="milestonesDropdown">Select Milestone:</label>
+        <select id="milestonesDropdown">
+            <option value="" selected disabled>Select Milestone</option>
+            <option value="projectProposal">Project Proposal</option>
+            <option value="progressPresentation1">Progress Presentation 1</option>
+            <option value="progressPresentation2">Progress Presentation 2</option>
+            <option value="finalAssessments">Final Assessments</option>
+            <option value="viva">Viva</option>
+        </select>
+        <br>
+        <button onclick="navigateToCloud()">Go to Milestone</button>
+    </section>
+
+    <script>
+        function navigateToCloud() {
+            var dropdown = document.getElementById("milestonesDropdown");
+            var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+
+            // Define your cloud URLs based on the selected milestone
+            var cloudURLs = {
+                projectProposal: "https://mysliit.sharepoint.com/:p:/s/ResearchProject-TMP23-030/EQm-IgY38whIsC-fdVfRMDgBO_Ec45-G2QM6kKLqKvV9ug?e=qvnVgx",
+                progressPresentation1: "https://mysliit.sharepoint.com/:p:/s/ResearchProject-TMP23-030/Ec-jeuZc0IxCv336_zK5FyoBTTfbZUl0zQzL5IoJhIMRwA?e=OgAzr2",
+                progressPresentation2: "https://mysliit.sharepoint.com/:p:/s/ResearchProject-TMP23-030/ETZJS-WyaLlElIhAKoxN5H8B0xCnPnCpoNNWW3L5iIq7-w?e=oOj39Y",
+                finalAssessments: "https://mysliit.sharepoint.com/:p:/s/ResearchProject-TMP23-030/Ea1E4W9dtJtCrH5aM2xF6z4BrokJ6dXs7uZS-orvojvGtg?e=8A4TOK",
+                viva: "cloudURL_viva"
+            };
+
+            // Navigate to the selected milestone's cloud URL
+            if (selectedValue && cloudURLs[selectedValue]) {
+                window.location.href = cloudURLs[selectedValue];
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #4CAF50; /* Green color theme */
+            color: #fff; /* White text on green background */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+            background-color: #fff; /* White background for the content section */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #4CAF50; /* Green heading color */
+        }
+
+        label, select, button {
+            margin-bottom: 10px;
+        }
+
+        select, button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        button {
+            background-color: #4CAF50; /* Green button background */
+            color: #fff; /* White text on green button */
+        }
+    </style>
+    <title>Presentations</title>
+</head>
+<body>
+    <section>
+        <h2>Presentations</h2>
+        
+        <!-- Form for selecting and viewing presentations -->
+        <form id="presentationForm">
+            <label for="presentationType">Select Presentation Type:</label>
+            <select id="presentationType" name="presentationType">
+                <option value="proposal">Proposal Presentation</option>
+                <option value="progress1">Progress Presentation 1</option>
+                <option value="progress2">Progress Presentation 2</option>
+                <option value="final">Final Presentation</option>
+            </select>
+            <br>
+
+            <!-- Display selected presentation -->
+            <div id="selectedPresentation">
+                <!-- Selected presentation will be displayed here -->
+            </div>
+            <br>
+
+            <button type="button" onclick="viewPresentation()">View Presentation</button>
+        </form>
+    </section>
+
+    <script>
+        function viewPresentation() {
+            var selectedType = document.getElementById("presentationType").value;
+
+            // You can fetch the appropriate document URL based on the selectedType here
+
+            // For now, let's assume the URLs are predefined
+            var documentUrls = {
+                proposal: "https://mysliit.sharepoint.com/:p:/s/CDAPSubmissionCloud/EUu1tx_oF8ZCgnGjtYVHciwB69MkCbFcrFvRVnWtkWfpqw?e=zNek648",
+                progress1: "https://mysliit.sharepoint.com/:p:/s/CDAPSubmissionCloud/ERWlo_PwezxHg4mV3crVxF8BbRi7XYeIB7YiJ53We7el0g?e=M8L36h",
+                progress2: "https://mysliit.sharepoint.com/:p:/s/CDAPSubmissionCloud/EXnN7ms4QN1PtuPOSVJzj5MB1JhnOkOzcVfH3lbl8rkhVQ?e=7lAGmr",
+                final: "https://mysliit.sharepoint.com/:p:/s/CDAPSubmissionCloud/EWlXo445ghRKgX0_4J6hz5gB9aYWhHH5yZ-Ju-8AODuIxg?e=SwysG5"
+            };
+
+            var selectedUrl = documentUrls[selectedType];
+
+            // Display the selected presentation link
+            displaySelectedPresentation(selectedType, selectedUrl);
+        }
+
+        function displaySelectedPresentation(type, url) {
+            var selectedPresentation = document.getElementById("selectedPresentation");
+
+            // Create a link to the selected presentation
+            var presentationLink = document.createElement("a");
+            presentationLink.href = url;
+            presentationLink.target = "_blank";
+            presentationLink.innerText = type + " Presentation";
+
+            // Update the selected presentation div
+            selectedPresentation.innerHTML = "";
+            selectedPresentation.appendChild(presentationLink);
+        }
+    </script>
+</body>
+</html>
